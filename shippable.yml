@@ -36,6 +36,10 @@ build:
   post_ci:
     - docker build -t $DOCKER_ACC/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER .
     - docker push $DOCKER_ACC/$DOCKER_REPO:$BRANCH.$BUILD_NUMBER
+    
+  #this will be ignored if you are not using Assembly Lines to trigger another job after ci  
+  on_success:
+    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/demo_doc_img.env
 
 # Integrations are used to connect external resources to CI
 # http://docs.shippable.com/integrations/overview/
