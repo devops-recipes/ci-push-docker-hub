@@ -47,5 +47,5 @@ integrations:
   # adding docker hub integration so that credentials are available to CI Job
   # http://docs.shippable.com/platform/integration/dockerRegistryLogin/
   hub:
-    - integrationName: dr-dockerhub
-      type: docker
+    - integrationName: dr_dh
+      type: dockerRegistryLogin
