@@ -48,4 +48,4 @@ integrations:
   # http://docs.shippable.com/platform/integration/dockerRegistryLogin/
   hub:
     - integrationName: dr-dockerhub
-      type: dockerRegistryLogin
+      type: docker
