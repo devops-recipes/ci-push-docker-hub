@@ -39,7 +39,8 @@ build:
     
   #this will be ignored if you are not using Assembly Lines to trigger another job after ci  
   on_success:
-    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/demo_doc_img.env
+    - shipctl put_resource_state $JOB_NAME versionName $BRANCH.$BUILD_NUMBER
+#    - echo "versionName=$BRANCH.$BUILD_NUMBER" >> $JOB_STATE/demo_doc_img.env
 
 # Integrations are used to connect external resources to CI
 # http://docs.shippable.com/integrations/overview/
@@ -47,5 +48,5 @@ integrations:
   # adding docker hub integration so that credentials are available to CI Job
   # http://docs.shippable.com/platform/integration/dockerRegistryLogin/
   hub:
-    - integrationName: dr_dh
+    - integrationName: drship_dockerhub
       type: dockerRegistryLogin
